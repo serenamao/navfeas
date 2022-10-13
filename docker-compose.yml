@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  api_test:
+    container_name: api_test
+    restart: always 
+    build: ./api_test
+    ports:
+      - 8080:8080
+    volumes:
+      - ./api_test/src/:/src/
+
+      
