@@ -1,5 +1,6 @@
 version: '3.7'
 services:
+
   api_test:
     container_name: api_test
     restart: always 
@@ -9,4 +10,15 @@ services:
     volumes:
       - ./api_test/src/:/src/
 
+  frontend_test:
+      container_name: frontend_test
+      restart: always 
+      build: ./frontend_test
+      ports:
+        - 80:80
+      volumes:
+        - ./frontend_test/public:/app/public
+        - ./frontend_test/src:/app/src
+        - ./frontend_test/package.json:/app/package.json
+        - ./frontend_test/package-lock.json:/app/package-lock.json
       
